@@ -1,0 +1,16 @@
+{
+  "name": "Audio Studio Pro",
+  "short_name": "AudioLoop",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3075/3075908.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Loop Master</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white font-cairo h-screen w-screen overflow-hidden flex items-center justify-center relative">
+
+    <div class="absolute top-0 left-0 w-72 h-72 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+    <div class="absolute top-0 right-0 w-72 h-72 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+    <div class="absolute -bottom-32 left-20 w-72 h-72 bg-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+
+    <div class="glass-card relative z-10 w-full max-w-md p-8 rounded-2xl shadow-2xl border border-gray-700 mx-4">
+        
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                <i class="fa-solid fa-wave-square ml-2"></i> معدل الصوتيات
+            </h1>
+            <p class="text-gray-400 text-sm mt-2">قص أو تكرار الصوت بذكاء</p>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-300 mb-2">الملف الصوتي</label>
+            <div class="relative w-full h-32 border-2 border-dashed border-gray-500 hover:border-blue-400 rounded-xl flex flex-col items-center justify-center transition-all cursor-pointer group bg-gray-800/50" id="dropZone">
+                <input type="file" id="audioInput" accept="audio/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                <div class="text-center z-10 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-400 mb-2 group-hover:text-blue-400"></i>
+                    <p class="text-sm text-gray-400" id="fileName">اضغط أو اسحب الملف هنا</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <label class="block text-sm font-medium text-gray-300 mb-2">المدة المطلوبة (ثواني)</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <i class="fa-regular fa-clock text-gray-500"></i>
+                </div>
+                <input type="number" id="durationInput" value="60" min="1" 
+                    class="block w-full pr-10 pl-3 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-gray-400 transition-all outline-none">
+            </div>
+        </div>
+
+        <button id="processBtn" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transform transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center justify-center gap-2">
+            <span>بدء المعالجة</span>
+            <i class="fa-solid fa-bolt"></i>
+        </button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
